@@ -45,13 +45,13 @@ const teamMembers = [
     }
   ];
   
-  // Totaling a specific object property
+// Totaling a specific object property
   let totalExperience = teamMembers.reduce((acc, curr) => acc + curr.yrsExperience, 0);
   console.log(totalExperience);
 
   
-  // Grouping by a property, and totaling it too
-  // Goal -> {Developer: 12, Designer: 4}
+// Grouping by a property, and totaling it too
+// Goal -> {Developer: 12, Designer: 4}
   let experienceByProfession = teamMembers.reduce((acc, curr) => {
     let key = curr.profession;
     if (!acc[key]) {
@@ -64,8 +64,8 @@ const teamMembers = [
 
   console.log(experienceByProfession);
 
-  // Challenge, show names of each profession instead
-  // Goal -> { Developer: ['name', 'name']}
+// Challenge, show names of each profession instead
+// Goal -> { Developer: ['name', 'name']}
   let nameByProfession = teamMembers.reduce((acc, curr) => {
     let key = curr.profession;
     if (!acc[key]) {
@@ -78,6 +78,12 @@ const teamMembers = [
 
   console.log(nameByProfession);
 
-  // Challenge, filter for specific profession, then take highest experience
-  // Goal -> { Developer: 'name', yrsExperience: 'yrs'}
-
+// Challenge, filter for specific profession, then take highest experience
+// Goal -> { Developer: 'name', yrsExperience: 'yrs'}
+let bestInProfession = teamMembers.reduce((acc, curr) => {
+    if (acc[key] === 'Developer') {
+        acc[key] = [curr.name, curr.yrsExperience];
+    } else {
+        acc[key].push(curr.name, curr.yrsExperience);
+    }
+})
